@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Asian Countries Animation (English & Chinese)</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f8faff;
+      color: #333;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    #country-container {
+      text-align: center;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background-color: #ffffff;
+      transform: scale(0.9);
+      animation: fadeScale 1s ease-in-out infinite alternate;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: 2em;
+      color: #0055cc;
+    }
+
+    p {
+      margin: 0;
+      font-size: 1.5em;
+      color: #444;
+    }
+
+    @keyframes fadeScale {
+      from { opacity: 0.5; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.5em; }
+      p { font-size: 1.2em; }
+    }
+  </style>
+</head>
+<body>
+  <div id="country-container">
+    <h1 id="country-en">Loading...</h1>
+    <p id="country-cn">加载中...</p>
+  </div>
+
+  <script>
+    const countries = [
+      {en: "Afghanistan", cn: "阿富汗"},
+      {en: "Armenia", cn: "亚美尼亚"},
+      {en: "Azerbaijan", cn: "阿塞拜疆"},
+      {en: "Bahrain", cn: "巴林"},
+      {en: "Bangladesh", cn: "孟加拉国"},
+      {en: "Bhutan", cn: "不丹"},
+      {en: "Brunei", cn: "文莱"},
+      {en: "Cambodia", cn: "柬埔寨"},
+      {en: "China", cn: "中国"},
+      {en: "Cyprus", cn: "塞浦路斯"},
+      {en: "Georgia", cn: "格鲁吉亚"},
+      {en: "India", cn: "印度"},
+      {en: "Indonesia", cn: "印度尼西亚"},
+      {en: "Iran", cn: "伊朗"},
+      {en: "Iraq", cn: "伊拉克"},
+      {en: "Israel", cn: "以色列"},
+      {en: "Japan", cn: "日本"},
+      {en: "Jordan", cn: "约旦"},
+      {en: "Kazakhstan", cn: "哈萨克斯坦"},
+      {en: "Kuwait", cn: "科威特"},
+      {en: "Kyrgyzstan", cn: "吉尔吉斯斯坦"},
+      {en: "Laos", cn: "老挝"},
+      {en: "Lebanon", cn: "黎巴嫩"},
+      {en: "Malaysia", cn: "马来西亚"},
+      {en: "Maldives", cn: "马尔代夫"},
+      {en: "Mongolia", cn: "蒙古"},
+      {en: "Myanmar", cn: "缅甸"},
+      {en: "Nepal", cn: "尼泊尔"},
+      {en: "North Korea", cn: "朝鲜"},
+      {en: "Oman", cn: "阿曼"},
+      {en: "Pakistan", cn: "巴基斯坦"},
+      {en: "Palestine", cn: "巴勒斯坦"},
+      {en: "Philippines", cn: "菲律宾"},
+      {en: "Qatar", cn: "卡塔尔"},
+      {en: "Russia", cn: "俄罗斯"},
+      {en: "Saudi Arabia", cn: "沙特阿拉伯"},
+      {en: "Singapore", cn: "新加坡"},
+      {en: "South Korea", cn: "韩国"},
+      {en: "Sri Lanka", cn: "斯里兰卡"},
+      {en: "Syria", cn: "叙利亚"},
+      {en: "Tajikistan", cn: "塔吉克斯坦"},
+      {en: "Thailand", cn: "泰国"},
+      {en: "Timor-Leste", cn: "东帝汶"},
+      {en: "Turkey", cn: "土耳其"},
+      {en: "Turkmenistan", cn: "土库曼斯坦"},
+      {en: "United Arab Emirates", cn: "阿联酋"},
+      {en: "Uzbekistan", cn: "乌兹别克斯坦"},
+      {en: "Vietnam", cn: "越南"},
+      {en: "Yemen", cn: "也门"}
+    ];
+
+    let index = 0;
+    const countryEn = document.getElementById('country-en');
+    const countryCn = document.getElementById('country-cn');
+
+    function updateCountry() {
+      countryEn.textContent = countries[index].en;
+      countryCn.textContent = countries[index].cn;
+      index = (index + 1) % countries.length;
+    }
+
+    // Initial display
+    updateCountry();
+
+    // Automatically update every 2 seconds
+    setInterval(updateCountry, 2000);
+  </script>
+</body>
+</html>
